@@ -20,6 +20,9 @@ class Solution:
                 orderPriorityBracket.append('hard')
                 
             elif e == ')':
+                if (len(orderPriorityBracket)) == 0:
+                    return False
+                
                 if orderPriorityBracket.pop() != 'soft':
                     return False
                 
@@ -28,6 +31,9 @@ class Solution:
                     return False
                 
             elif e == '}':
+                if (len(orderPriorityBracket)) == 0:
+                    return False
+                
                 if orderPriorityBracket.pop() != 'point':
                     return False
                 
@@ -36,6 +42,9 @@ class Solution:
                     return False
                 
             elif e == ']':
+                if (len(orderPriorityBracket)) == 0:
+                    return False
+                
                 if orderPriorityBracket.pop() != 'hard':
                     return False
                 
@@ -45,4 +54,3 @@ class Solution:
                 
         if softBracket == 0 and pointBracket == 0 and hardBracket == 0:
             return True
-        
