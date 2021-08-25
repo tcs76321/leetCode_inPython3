@@ -12,5 +12,6 @@ class Solution:
                     nextAddition = i
             res += str(i)
             nums.remove(i)
+            nextAddition = -1
             
         return res
