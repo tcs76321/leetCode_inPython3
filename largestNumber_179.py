@@ -1,17 +1,9 @@
+
+class LargerNumKey(str):
+    def __lt__(x, y):
+        return x+y > y+x
+        
 class Solution:
-    def largestNumber(self, nums: List[int]) -> str:
-        res = ""
-        
-        nextAddition = -1
-        
-        l = len(nums)
-        
-        for iterator in range(1, l+1):
-            for i in nums:
-                if (i % 10) > nextAddition:
-                    nextAddition = i
-            res += str(i)
-            nums.remove(i)
-            nextAddition = -1
-            
-        return res
+    def largestNumber(self, nums):
+        largest_num = ''.join(sorted(map(str, nums), key=LargerNumKey))
+        return '0' if largest_num[0] == '0' else largest_num
